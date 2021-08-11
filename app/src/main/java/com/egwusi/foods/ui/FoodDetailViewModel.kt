@@ -1,4 +1,4 @@
-package com.egwusi.foods.ui.connection
+package com.egwusi.foods.ui
 
 import androidx.lifecycle.ViewModel;
 
