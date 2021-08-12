@@ -1,7 +1,8 @@
-package com.egwusi.foods
+package com.egwusi.foods.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.egwusi.foods.R
 import com.egwusi.foods.ui.connection.ConnectionFragment
 
 class MainActivity : AppCompatActivity() {
@@ -11,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, ConnectionFragment.newInstance())
+                .replace(R.id.container, FoodListFragment.newInstance())
                 .commitNow()
         }
     }

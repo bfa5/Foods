@@ -3,41 +3,36 @@ package com.egwusi.foods.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.alexandre.skiresort.R
-import com.alexandre.skiresort.model.SkiResort
+import com.egwusi.foods.R
+import com.egwusi.foods.model.Food
 
-class SkiResortViewHolder(view: View)  : RecyclerView.ViewHolder(view) {
-    private val skiResortName: TextView = view.findViewById(R.id.skiResortName)
-    private val skiResortCountry: TextView = view.findViewById(R.id.skiResortCountry)
-    private val skiResortMountain: TextView = view.findViewById(R.id.skiResortMountain)
-    private val skiResortSlopesKm: TextView = view.findViewById(R.id.skiResortSlopesKm)
-    private val skiResortLifts: TextView = view.findViewById(R.id.skiResortLifts)
-    private val skiResortSlopes: TextView = view.findViewById(R.id.skiResortSlopes)
+class FoodViewHolder(view: View)  : RecyclerView.ViewHolder(view) {
+    private val foodName: TextView = view.findViewById(R.id.foodName)
+    private val foodPrice: TextView = view.findViewById(R.id.foodPrice)
+    private val foodImage: ImageView = view.findViewById(R.id.foodImage)
 
-    fun bind(skiResort: SkiResort?) {
-        if (skiResort != null) {
-            showSkiResortData(skiResort)
+    fun bind(food: Food?) {
+        if (food != null) {
+            showFoodData(food)
         }
     }
 
-    private fun showSkiResortData(skiResort: SkiResort) {
-        skiResort.apply {
-            skiResortName.text = name
-            skiResortCountry.text = country
-            skiResortMountain.text = mountainRange
-            skiResortSlopesKm.text = slopeKm.toString()
-            skiResortLifts.text = lifts.toString()
-            skiResortSlopes.text = slopes.toString()
-        }
+    private fun showFoodData(food: Food) {
+        //food.apply {
+            foodName.text = food.name
+            foodPrice.text = food.price.toString()
+            //foodImage.text = mountainRange
+        //}
     }
 
     companion object {
-        fun create(parent: ViewGroup): SkiResortViewHolder {
+        fun create(parent: ViewGroup): FoodViewHolder {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.ski_resort_item, parent, false)
-            return SkiResortViewHolder(view)
+                .inflate(R.layout.food_item, parent, false)
+            return FoodViewHolder(view)
         }
     }
 }

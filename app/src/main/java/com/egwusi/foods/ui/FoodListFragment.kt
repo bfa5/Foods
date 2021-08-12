@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.egwusi.foods.R
 import com.egwusi.foods.model.Food
+import kotlinx.android.synthetic.main.food_list_fragment.*
 
 class FoodListFragment : Fragment() {
 
@@ -22,8 +23,6 @@ class FoodListFragment : Fragment() {
     companion object {
         fun newInstance() = FoodListFragment()
     }
-
-    private lateinit var viewModel: FoodListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +48,7 @@ class FoodListFragment : Fragment() {
         /**
          * Observe changes in the list of foods
          */
-        viewModelFoodList.foodList.observe(this, Observer<List<Food>> {
+        viewModelFoodList.foodList.observe(viewLifecycleOwner, Observer<List<Food>> {
             adapter.submitList(it)
         })
     }

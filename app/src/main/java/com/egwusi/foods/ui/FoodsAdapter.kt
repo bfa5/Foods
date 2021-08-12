@@ -4,7 +4,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.alexandre.skiresort.model.SkiResort
 import com.egwusi.foods.model.Food
 
 class FoodsAdapter : ListAdapter<Food, RecyclerView.ViewHolder>(FOODS_COMPARATOR) {
@@ -24,7 +23,7 @@ class FoodsAdapter : ListAdapter<Food, RecyclerView.ViewHolder>(FOODS_COMPARATOR
     companion object {
         private val FOODS_COMPARATOR = object : DiffUtil.ItemCallback<Food>() {
             override fun areItemsTheSame(oldItem: Food, newItem: Food): Boolean =
-                oldItem.skiResortId == newItem.skiResortId
+                oldItem.id == newItem.id
 
             override fun areContentsTheSame(oldItem: Food, newItem: Food): Boolean =
                 oldItem == newItem
