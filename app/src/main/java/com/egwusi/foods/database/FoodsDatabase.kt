@@ -16,7 +16,7 @@ import com.egwusi.foods.model.Food
 )
 abstract class FoodsDatabase : RoomDatabase() {
 
-    abstract fun skiResortDao(): FoodsDao
+    abstract fun foodsDao(): FoodsDao
 
     companion object {
         @Volatile

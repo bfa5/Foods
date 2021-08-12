@@ -12,7 +12,7 @@ interface FoodsDao {
 
     //Add a list of foods
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(skiResortList: List<Food>)
+    fun insertAll(foodList: List<Food>)
 
     //Get all Foods
     @Query("SELECT * FROM Foods")

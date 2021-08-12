@@ -12,7 +12,7 @@ import java.util.concurrent.Executors
 object Injection{
     private fun provideFoodsRepo(context: Context): FoodsRepo {
         val database = FoodsDatabase.getInstance(context)
-        return FoodsRepo(FoodListService.create(), database.skiResortDao(), Executors.newSingleThreadExecutor())
+        return FoodsRepo(FoodListService.create(), database.foodsDao(), Executors.newSingleThreadExecutor())
     }
 
     fun provideViewModelFactoryFoodList(context: Context): ViewModelProvider.Factory {

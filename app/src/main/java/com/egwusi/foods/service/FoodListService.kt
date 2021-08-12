@@ -21,7 +21,7 @@ private const val TAG = "FoodListService" //retrofit
  */
 fun requestFoods(
     service: FoodListService,
-    onSuccess: (skiResorts: List<Food>) -> Unit,
+    onSuccess: (foods: List<Food>) -> Unit,
     onError: (error: String) -> Unit) {
 
     service.getFoods().enqueue(
@@ -37,8 +37,8 @@ fun requestFoods(
             ) {
                 Log.d(TAG, "got a response $response")
                 if (response.isSuccessful) {
-                    val skiResorts = response.body() ?: emptyList()
-                    onSuccess(skiResorts)
+                    val foods = response.body() ?: emptyList()
+                    onSuccess(foods)
                 } else {
                     onError(response.errorBody()?.string() ?: "Unknown error")
                 }
@@ -50,7 +50,7 @@ fun requestFoods(
 interface FoodListService{
 
     /**
-     * Get ski resort list.
+     * Get food list.
      */
     @GET("/meals")
     fun getFoods(): Call<List<Food>>
